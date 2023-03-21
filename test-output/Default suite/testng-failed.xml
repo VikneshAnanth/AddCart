@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestAutomation.MyTest.loginpageTest">
+      <class name="TestAutomation.MyTest.BrokenLinksTest">
         <methods>
-          <include name="loginpage" invocation-numbers="1 2"/>
+          <include name="getBrokenLink"/>
         </methods>
-      </class> <!-- TestAutomation.MyTest.loginpageTest -->
+      </class> <!-- TestAutomation.MyTest.BrokenLinksTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,40 +1,36 @@
 package TestAutomation.MyTest;
 
+import java.io.IOException;
 import java.time.Duration;
 
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class loginpageTest {
+public class loginpageTest extends BaseTest {
+	
+	
 	WebDriver driver;
 	@Test
-	public void browserIntialization()
+	public void Login() throws IOException
 	{
-		//WebDriverManager.firefoxdriver().setup();
-		 driver=new FirefoxDriver();
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.get("https://rahulshettyacademy.com/client");
-		
-	}
-	@Test(dataProvider = "credentials")
-	public void loginpage(String UserName,String Password )
-	{
-		//browserIntialization();
+		driver=browserIntialization();
 		loginpageObject lp=new loginpageObject(driver);
-		lp.login(UserName, Password);
-	}
-	@Test
-	@DataProvider(name="credentials")
-	public Object[][] getData()
+		lp.goTo();
+		lp.login("vigneshananth7@gmail.com", "Udemy@7");
+		System.out.println(driver.getTitle());
+		
+			}
+	@AfterTest()
+	public void TearDown()
 	{
-		Object data[][]=new Object[1][2];
-		data[0][0]="vigneshananth7@gmail.com";
-		data[0][1]="Udemy@7";
-	return data;	
+	driver.quit();
+	
 	}
 }

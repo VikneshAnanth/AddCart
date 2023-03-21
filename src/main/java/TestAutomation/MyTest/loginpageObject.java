@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class loginpageObject {
+public class loginpageObject   {
 
 	WebDriver driver;
 	public loginpageObject(WebDriver driver)
@@ -23,11 +23,16 @@ public class loginpageObject {
 	@FindBy(css=".login-btn")
 	WebElement loginButton;
 	
-	public void login(String UserName,String Password)
+	public ProductsPageObject login(String UserName,String Password)
 	{
 		email.sendKeys(UserName);
 		password.sendKeys(Password);
 		loginButton.click();
-		
+		ProductsPageObject ppTest=new ProductsPageObject(driver);
+		return new ProductsPageObject(driver);
+	}
+	public void goTo()
+	{
+		driver.get("https://rahulshettyacademy.com/client");
 	}
 }
